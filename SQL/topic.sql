@@ -1,0 +1,21 @@
+create table topic(
+id int primary key not null,
+title varchar(255) default null,
+content text,
+postTime datetime default NULL,
+ipAddr varchar(16) default null,
+deleted boolean default null,
+typeBelongs varchar(255) DEFAULT NULL,
+summary text,
+viewCount int DEFAULT 0,
+replyCount int DEFAULT 0,
+lastArticlePostTime datetime DEFAULT NULL,
+nextFloor int DEFAULT 0,
+lastReplyID int DEFAULT NULL,
+authorID int DEFAULT NULL,
+forumID int DEFAULT NULL,
+KEY FK90FFD39A5 (forumID),
+KEY FK6899E4A141 (authorID),
+constraint FK6899E4A141 FOREIGN KEY(authorID) REFERENCES bbs_user(id),
+constraint FK90FFD39A5 FOREIGN KEY(forumID) REFERENCES fornum(id)
+);
